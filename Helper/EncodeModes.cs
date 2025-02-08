@@ -9,7 +9,7 @@ public class EncodeModes
     {
         return input switch
         {
-            null => EncodingMode.Invalid,
+            null => throw new NullReferenceException(),
             _ when RegexPatterns.NumericRegex().IsMatch(input) => EncodingMode.Numeric,
             _ when RegexPatterns.AlphanumericRegex().IsMatch(input) => EncodingMode.Alphanumeric,
             _ when RegexPatterns.Latin1Regex().IsMatch(input) => EncodingMode.Byte,
