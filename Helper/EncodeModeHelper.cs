@@ -1,9 +1,9 @@
-﻿using QR_Generator.Constants;
+﻿using QR_Generator.Constants.Enums;
 using QR_Generator.Constants.RegexPatterns;
 
 namespace QR_Generator.Helper;
 
-public class EncodeModes
+public class EncodeModeHelper
 {
     public static EncodingMode GetEncodingMode(string input)
     {

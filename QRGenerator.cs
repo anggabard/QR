@@ -2,23 +2,46 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
+using QR_Generator.Helper;
+using QR_Generator.Models;
+using QR_Generator.Services;
+using System.Text.Json;
 
 namespace QR_Generator
 {
-    public class QRGenerator
+    public class QRGenerator(ILogger<QRGenerator> logger, CharacterCapacitiesService characterCapacitiesService)
     {
-        private readonly ILogger<QRGenerator> _logger;
-
-        public QRGenerator(ILogger<QRGenerator> logger)
-        {
-            _logger = logger;
-        }
-
         [Function("QRG")]
-        public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req)
         {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
-            return new OkObjectResult("Welcome to Azure Functions!");
+            logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            // Read the body from the HttpRequest
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+
+            // Manually deserialize the JSON body into your custom model
+            var QRrequest = JsonSerializer.Deserialize<QRRequest>(requestBody);
+
+            if (QRrequest == null || string.IsNullOrEmpty(QRrequest.Message))
+            {
+                return new BadRequestObjectResult("Request body is missing or invalid.");
+            }
+
+            var config = new QRConfiguration
+            {
+                EncodingMode = EncodeModeHelper.GetEncodingMode(QRrequest.Message)
+            };
+
+            (config.Version, config.ErrorCorrectionLevel) = characterCapacitiesService.GetMinVersionAndMaxErrorCorrection(config.EncodingMode, QRrequest.Message.Length);
+
+            var lengthBits = LengthBitsHelper.GetLengthBits(config.EncodingMode, config.Version);
+
+            return new OkObjectResult(
+                $"Length: {QRrequest.Message.Length}, \n" +
+                $"Mode: {config.EncodingMode}, \n" +
+                $"Version: {config.Version}, \n" +
+                $"ECL: {config.ErrorCorrectionLevel}\n" +
+                $"LengthBits: {lengthBits}");
         }
     }
 }

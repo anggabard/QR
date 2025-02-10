@@ -8,6 +8,28 @@
     <RootNamespace>QR_Generator</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Config\CharacterCapacities\Alphanumeric.json" />
+    <None Remove="Config\CharacterCapacities\Byte.json" />
+    <None Remove="Config\CharacterCapacities\Kanji.json" />
+    <None Remove="Config\CharacterCapacities\Numeric.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\CharacterCapacities\Numeric.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\CharacterCapacities\Alphanumeric.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CharacterCapacities\Byte.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CharacterCapacities\Kanji.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <!-- Application Insights isn't enabled by default. See https://aka.ms/AAt8mw4. -->
     <!-- <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.22.0" /> -->

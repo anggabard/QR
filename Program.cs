@@ -1,5 +1,7 @@
 using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using QR_Generator.Services;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
@@ -10,4 +12,12 @@ builder.ConfigureFunctionsWebApplication();
 //     .AddApplicationInsightsTelemetryWorkerService()
 //     .ConfigureFunctionsApplicationInsights();
 
-builder.Build().Run();
+builder.Services.AddSingleton<CharacterCapacitiesService>();
+
+var host = builder.Build();
+
+// Resolve MyService and force initialization
+var characterCapacitiesService = host.Services.GetRequiredService<CharacterCapacitiesService>();
+characterCapacitiesService.Initialize(); // Initialize the singleton during startup
+
+host.Run();
