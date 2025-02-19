@@ -1,48 +1,23 @@
 ﻿using QR_Generator.Constants.Enums;
+using QR_Generator.Helper;
 using QR_Generator.Models;
-using System.Reflection;
-using System.Text.Json;
+using QR_Generator.Services.Base;
 
 namespace QR_Generator.Services;
 
-public class CharacterCapacitiesService
+public class CharacterCapacitiesService : StartupService
 {
     private Dictionary<EncodingMode, EncodingModeCapatity> CharacterCapacities;
 
-    public void Initialize()
+    public override void Initialize()
     {
         CharacterCapacities = new Dictionary<EncodingMode, EncodingModeCapatity>
         {
-            { EncodingMode.Numeric, LoadJson("QR_Generator.Config.CharacterCapacities.Numeric.json") },
-            { EncodingMode.Alphanumeric, LoadJson("QR_Generator.Config.CharacterCapacities.Alphanumeric.json") },
-            { EncodingMode.Byte, LoadJson("QR_Generator.Config.CharacterCapacities.Byte.json") },
-            { EncodingMode.Kanji, LoadJson("QR_Generator.Config.CharacterCapacities.Kanji.json") }
+            { EncodingMode.Numeric, JsonHelper.LoadFromAssembly<EncodingModeCapatity>("QR_Generator.Config.CharacterCapacities.Numeric.json") },
+            { EncodingMode.Alphanumeric, JsonHelper.LoadFromAssembly<EncodingModeCapatity>("QR_Generator.Config.CharacterCapacities.Alphanumeric.json") },
+            { EncodingMode.Byte, JsonHelper.LoadFromAssembly<EncodingModeCapatity>("QR_Generator.Config.CharacterCapacities.Byte.json") },
+            { EncodingMode.Kanji, JsonHelper.LoadFromAssembly<EncodingModeCapatity>("QR_Generator.Config.CharacterCapacities.Kanji.json") }
         };
-    }
-
-    private EncodingModeCapatity LoadJson(string resourceName)
-    {
-        // Get the current assembly
-        var assembly = Assembly.GetExecutingAssembly();
-
-        // Load the embedded resource
-        using var stream = assembly.GetManifestResourceStream(resourceName);
-        if (stream == null)
-        {
-            throw new FileNotFoundException($"Embedded resource '{resourceName}' not found.");
-        }
-
-        using var reader = new StreamReader(stream);
-        var jsonContent = reader.ReadToEnd();
-
-        // Deserialize the JSON content into the specified type
-        var result = JsonSerializer.Deserialize<EncodingModeCapatity>(jsonContent);
-        if (result == null)
-        {
-            throw new FileNotFoundException($"Assembly not found: {resourceName}");
-        }
-
-        return result;
     }
 
     public (int version, ErrorCorrectionLevel ecl) GetMinVersionAndMaxErrorCorrection(EncodingMode encodingMode, int messageLength)

@@ -9,7 +9,7 @@ using System.Text.Json;
 
 namespace QR_Generator
 {
-    public class QRGenerator(ILogger<QRGenerator> logger, CharacterCapacitiesService characterCapacitiesService)
+    public class QRGenerator(ILogger<QRGenerator> logger, CharacterCapacitiesService characterCapacitiesService, ErrorCorrectionCodeWordsAndBlockInformationService codeWordsAndBlockInformationService)
     {
         [Function("QRG")]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req)
@@ -35,13 +35,15 @@ namespace QR_Generator
             (config.Version, config.ErrorCorrectionLevel) = characterCapacitiesService.GetMinVersionAndMaxErrorCorrection(config.EncodingMode, QRrequest.Message.Length);
 
             var lengthBits = LengthBitsHelper.GetLengthBits(config.EncodingMode, config.Version);
+            var totalDataCodewordss = codeWordsAndBlockInformationService.GetTotalDataCodewordss(config.Version, config.ErrorCorrectionLevel);
 
             return new OkObjectResult(
                 $"Length: {QRrequest.Message.Length}, \n" +
                 $"Mode: {config.EncodingMode}, \n" +
                 $"Version: {config.Version}, \n" +
                 $"ECL: {config.ErrorCorrectionLevel}\n" +
-                $"LengthBits: {lengthBits}");
+                $"LengthBits: {lengthBits}" +
+                $"TotalDataCodewordss: {totalDataCodewordss}");
         }
     }
 }

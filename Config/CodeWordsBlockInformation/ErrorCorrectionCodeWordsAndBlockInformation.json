@@ -1,0 +1,1202 @@
+{
+  "1": {
+    "L": {
+      "ECCodewordsPerBlock": 7,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 19,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 10,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 16,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 13,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 13,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "H": {
+      "ECCodewordsPerBlock": 17,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 9,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    }
+  },
+  "2": {
+    "L": {
+      "ECCodewordsPerBlock": 10,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 34,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 16,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 28,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 22,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "H": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 16,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    }
+  },
+  "3": {
+    "L": {
+      "ECCodewordsPerBlock": 15,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 55,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 44,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 18,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 17,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "H": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 13,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    }
+  },
+  "4": {
+    "L": {
+      "ECCodewordsPerBlock": 20,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 80,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 18,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 32,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "H": {
+      "ECCodewordsPerBlock": 16,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 9,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    }
+  },
+  "5": {
+    "L": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 108,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 43,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 18,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    },
+    "H": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 11,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 12
+    }
+  },
+  "6": {
+    "L": {
+      "ECCodewordsPerBlock": 18,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 68,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 16,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 27,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 19,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "H": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    }
+  },
+  "7": {
+    "L": {
+      "ECCodewordsPerBlock": 20,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 78,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 18,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 31,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 18,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 14,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 15
+    },
+    "H": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 13,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 14
+    }
+  },
+  "8": {
+    "L": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 97,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 38,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 39
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 18,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 19
+    },
+    "H": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 14,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 15
+    }
+  },
+  "9": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 116,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 36,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 37
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 20,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 16,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 17
+    },
+    "H": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 12,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 13
+    }
+  },
+  "10": {
+    "L": {
+      "ECCodewordsPerBlock": 18,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 68,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 69
+    },
+    "M": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 43,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 44
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 6,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 19,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 20
+    },
+    "H": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 6,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "11": {
+    "L": {
+      "ECCodewordsPerBlock": 20,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 81,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 50,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 51
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 22,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 23
+    },
+    "H": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 12,
+      "NumberOfBlocksInGroup2": 8,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 13
+    }
+  },
+  "12": {
+    "L": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 92,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 93
+    },
+    "M": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 6,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 36,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 37
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 20,
+      "NumberOfBlocksInGroup2": 6,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 21
+    },
+    "H": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 7,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 14,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 15
+    }
+  },
+  "13": {
+    "L": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 107,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 8,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 37,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 38
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 8,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 20,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 21
+    },
+    "H": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 12,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 11,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 12
+    }
+  },
+  "14": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 115,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 116
+    },
+    "M": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 40,
+      "NumberOfBlocksInGroup2": 5,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 41
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 20,
+      "NumberOfBlocksInGroup1": 11,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 16,
+      "NumberOfBlocksInGroup2": 5,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 17
+    },
+    "H": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 11,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 12,
+      "NumberOfBlocksInGroup2": 5,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 13
+    }
+  },
+  "15": {
+    "L": {
+      "ECCodewordsPerBlock": 22,
+      "NumberOfBlocksInGroup1": 5,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 87,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 88
+    },
+    "M": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 5,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 41,
+      "NumberOfBlocksInGroup2": 5,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 42
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 5,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 7,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 11,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 12,
+      "NumberOfBlocksInGroup2": 7,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 13
+    }
+  },
+  "16": {
+    "L": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 5,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 98,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 99
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 7,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 45,
+      "NumberOfBlocksInGroup2": 3,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 46
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 15,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 19,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 20
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 13,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "17": {
+    "L": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 107,
+      "NumberOfBlocksInGroup2": 5,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 108
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 10,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 46,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 47
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 22,
+      "NumberOfBlocksInGroup2": 15,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 23
+    },
+    "H": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 14,
+      "NumberOfBlocksInGroup2": 17,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 15
+    }
+  },
+  "18": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 5,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 120,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 121
+    },
+    "M": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 9,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 43,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 44
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 17,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 22,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 23
+    },
+    "H": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 14,
+      "NumberOfBlocksInGroup2": 19,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 15
+    }
+  },
+  "19": {
+    "L": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 113,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 114
+    },
+    "M": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 44,
+      "NumberOfBlocksInGroup2": 11,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 45
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 17,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 21,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 22
+    },
+    "H": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 9,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 13,
+      "NumberOfBlocksInGroup2": 16,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 14
+    }
+  },
+  "20": {
+    "L": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 107,
+      "NumberOfBlocksInGroup2": 5,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 108
+    },
+    "M": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 41,
+      "NumberOfBlocksInGroup2": 13,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 42
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 15,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 5,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 15,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 10,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "21": {
+    "L": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 116,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 117
+    },
+    "M": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 17,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 42,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 17,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 22,
+      "NumberOfBlocksInGroup2": 6,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 23
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 19,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 16,
+      "NumberOfBlocksInGroup2": 6,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 17
+    }
+  },
+  "22": {
+    "L": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 111,
+      "NumberOfBlocksInGroup2": 7,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 112
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 17,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 46,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 7,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 16,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 24,
+      "NumberOfBlocksInGroup1": 34,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 13,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    }
+  },
+  "23": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 121,
+      "NumberOfBlocksInGroup2": 5,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 122
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 47,
+      "NumberOfBlocksInGroup2": 14,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 48
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 11,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 14,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 16,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 14,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "24": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 6,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 117,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 118
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 6,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 45,
+      "NumberOfBlocksInGroup2": 14,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 46
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 11,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 16,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 30,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 16,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 17
+    }
+  },
+  "25": {
+    "L": {
+      "ECCodewordsPerBlock": 26,
+      "NumberOfBlocksInGroup1": 8,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 106,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 107
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 8,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 47,
+      "NumberOfBlocksInGroup2": 13,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 48
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 7,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 22,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 22,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 13,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "26": {
+    "L": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 10,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 114,
+      "NumberOfBlocksInGroup2": 2,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 115
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 19,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 46,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 47
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 28,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 22,
+      "NumberOfBlocksInGroup2": 6,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 23
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 33,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 16,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 17
+    }
+  },
+  "27": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 8,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 122,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 123
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 22,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 45,
+      "NumberOfBlocksInGroup2": 3,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 46
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 8,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 23,
+      "NumberOfBlocksInGroup2": 26,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 24
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 12,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 28,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "28": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 117,
+      "NumberOfBlocksInGroup2": 10,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 118
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 3,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 45,
+      "NumberOfBlocksInGroup2": 23,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 46
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 31,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 11,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 31,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "29": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 7,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 116,
+      "NumberOfBlocksInGroup2": 7,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 117
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 21,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 45,
+      "NumberOfBlocksInGroup2": 7,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 46
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 1,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 23,
+      "NumberOfBlocksInGroup2": 37,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 24
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 19,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 26,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "30": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 5,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 115,
+      "NumberOfBlocksInGroup2": 10,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 116
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 19,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 47,
+      "NumberOfBlocksInGroup2": 10,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 48
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 15,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 25,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 23,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 25,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "31": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 13,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 115,
+      "NumberOfBlocksInGroup2": 3,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 116
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 46,
+      "NumberOfBlocksInGroup2": 29,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 47
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 42,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 23,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 28,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "32": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 17,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 115,
+      "NumberOfBlocksInGroup2": null,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": null
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 10,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 46,
+      "NumberOfBlocksInGroup2": 23,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 47
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 10,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 35,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 19,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 35,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "33": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 17,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 115,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 116
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 14,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 46,
+      "NumberOfBlocksInGroup2": 21,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 47
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 29,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 19,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 11,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 46,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "34": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 13,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 115,
+      "NumberOfBlocksInGroup2": 6,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 116
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 14,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 46,
+      "NumberOfBlocksInGroup2": 23,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 47
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 44,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 7,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 59,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 16,
+      "NumberOfBlocksInGroup2": 1,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 17
+    }
+  },
+  "35": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 12,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 121,
+      "NumberOfBlocksInGroup2": 7,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 122
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 12,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 47,
+      "NumberOfBlocksInGroup2": 26,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 48
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 39,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 14,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 22,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 41,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "36": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 6,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 121,
+      "NumberOfBlocksInGroup2": 14,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 122
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 6,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 47,
+      "NumberOfBlocksInGroup2": 34,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 48
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 46,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 10,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 2,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 64,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "37": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 17,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 122,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 123
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 29,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 46,
+      "NumberOfBlocksInGroup2": 14,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 47
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 49,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 10,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 24,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 46,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "38": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 4,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 122,
+      "NumberOfBlocksInGroup2": 18,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 123
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 13,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 46,
+      "NumberOfBlocksInGroup2": 32,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 47
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 48,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 14,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 42,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 32,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "39": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 20,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 117,
+      "NumberOfBlocksInGroup2": 4,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 118
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 40,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 47,
+      "NumberOfBlocksInGroup2": 7,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 48
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 43,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 22,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 10,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 67,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  },
+  "40": {
+    "L": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 19,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 118,
+      "NumberOfBlocksInGroup2": 6,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 119
+    },
+    "M": {
+      "ECCodewordsPerBlock": 28,
+      "NumberOfBlocksInGroup1": 18,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 47,
+      "NumberOfBlocksInGroup2": 31,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 48
+    },
+    "Q": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 34,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 24,
+      "NumberOfBlocksInGroup2": 34,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 25
+    },
+    "H": {
+      "ECCodewordsPerBlock": 30,
+      "NumberOfBlocksInGroup1": 20,
+      "NumberOfDataCodewordsInEachOfGroup1Blocks": 15,
+      "NumberOfBlocksInGroup2": 61,
+      "NumberOfDataCodewordsInEachOfGroup2Blocks": 16
+    }
+  }
+}
