@@ -4,6 +4,7 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using QR_Generator.Helper;
 using QR_Generator.Models;
+using QR_Generator.QRData;
 using QR_Generator.Services;
 using System.Text.Json;
 
@@ -37,13 +38,17 @@ namespace QR_Generator
             var lengthBits = LengthBitsHelper.GetLengthBits(config.EncodingMode, config.Version);
             var totalDataCodewordss = codeWordsAndBlockInformationService.GetTotalDataCodewordss(config.Version, config.ErrorCorrectionLevel);
 
+            var byteData = new ByteData(config.EncodingMode, lengthBits, QRrequest.Message, totalDataCodewordss);
+
             return new OkObjectResult(
                 $"Length: {QRrequest.Message.Length}, \n" +
                 $"Mode: {config.EncodingMode}, \n" +
                 $"Version: {config.Version}, \n" +
                 $"ECL: {config.ErrorCorrectionLevel}\n" +
-                $"LengthBits: {lengthBits}" +
-                $"TotalDataCodewordss: {totalDataCodewordss}");
+                $"LengthBits: {lengthBits}\n" +
+                $"TotalDataCodewordss: {totalDataCodewordss}\n" +
+                $"DataChainList:\n" +
+                $"{byteData}\n");
         }
     }
 }
