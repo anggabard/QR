@@ -10,7 +10,10 @@ using System.Text.Json;
 
 namespace QR_Generator
 {
-    public class QRGenerator(ILogger<QRGenerator> logger, CharacterCapacitiesService characterCapacitiesService, ErrorCorrectionCodeWordsAndBlockInformationService codeWordsAndBlockInformationService)
+    public class QRGenerator(
+        ILogger<QRGenerator> logger, 
+        CharacterCapacitiesService characterCapacitiesService, 
+        ErrorCorrectionCodeWordsAndBlockInformationService codeWordsAndBlockInformationService)
     {
         [Function("QRG")]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req)
@@ -37,8 +40,9 @@ namespace QR_Generator
 
             var lengthBits = LengthBitsHelper.GetLengthBits(config.EncodingMode, config.Version);
             var totalDataCodewordss = codeWordsAndBlockInformationService.GetTotalDataCodewordss(config.Version, config.ErrorCorrectionLevel);
+            var ECCodewordsPerBlock = codeWordsAndBlockInformationService.GetECCodewordsPerBlock(config.Version, config.ErrorCorrectionLevel);
 
-            var byteData = new ByteData(config.EncodingMode, lengthBits, QRrequest.Message, totalDataCodewordss);
+            var bitData = new BitData(config.EncodingMode, lengthBits, QRrequest.Message, totalDataCodewordss, ECCodewordsPerBlock);
 
             return new OkObjectResult(
                 $"Length: {QRrequest.Message.Length}, \n" +
@@ -47,8 +51,7 @@ namespace QR_Generator
                 $"ECL: {config.ErrorCorrectionLevel}\n" +
                 $"LengthBits: {lengthBits}\n" +
                 $"TotalDataCodewordss: {totalDataCodewordss}\n" +
-                $"DataChainList:\n" +
-                $"{byteData}\n");
+                $"bitData: \n {bitData}\n");
         }
     }
 }

@@ -1,22 +1,24 @@
 ﻿using QR_Generator.Constants.Dictionaries;
 using QR_Generator.Constants.Enums;
+using QR_Generator.Helper;
 using System.Text;
 
 namespace QR_Generator.QRData;
 
-public class ByteData
+public class BitData
 {
     private readonly List<byte> Data = [];
     private readonly byte[] n_236 = [1, 1, 1, 0, 1, 1, 0, 0];
     private readonly byte[] n_17 = [0, 0, 0, 1, 0, 0, 0, 1];
 
-    public ByteData(EncodingMode encodingMode, int lengthBits, string message, int totalDataCodewords)
+    public BitData(EncodingMode encodingMode, int lengthBits, string message, int totalDataCodewords, int ECCodewordsPerBlock)
     {
         AddEncodingMode(encodingMode);
         AddNumber(lengthBits, message.Length);//AddMessageLenght
         AddMesage(encodingMode, message);
         AddTerminationBlock(totalDataCodewords);
         FillRemainingCodewords(totalDataCodewords);
+        AddEDC(ECCodewordsPerBlock);
     }
 
     private void FillRemainingCodewords(int totalDataCodewords)
@@ -155,6 +157,45 @@ public class ByteData
         return result;
     }
 
+    public List<byte> GetByteList()
+    {
+        if (Data == null)
+        {
+            throw new ArgumentNullException(nameof(Data));
+        }
+
+        if (Data.Count % 8 != 0)
+        {
+            throw new ArgumentException("The bit list length must be a multiple of 8.", nameof(Data));
+        }
+
+        var byteList = new List<byte>();
+
+        for (int i = 0; i < Data.Count; i += 8)
+        {
+            byte currentByte = 0;
+            for (int j = 0; j < 8; j++)
+            {
+                currentByte = (byte)((currentByte << 1) | Data[i + j]);
+            }
+            byteList.Add(currentByte);
+        }
+
+        return byteList;
+    }
+
+    public void AddEDC(int ECCodewordsPerBlock)
+    {
+        var polyCoef = GetByteList().ToArray();
+        byte[] messagePoly = new byte[Data.Count / 8 + ECCodewordsPerBlock];
+        Array.Copy(polyCoef, messagePoly, polyCoef.Length);
+
+        var EDC = PolynomialOperationsHelper.PolyRest(messagePoly, PolynomialOperationsHelper.GetGeneratorPoly(ECCodewordsPerBlock));
+        foreach (var codeword in EDC)
+        {
+            AddNumber(8, codeword);
+        }
+    }
     public override string ToString()
     {
         StringBuilder sb = new();
