@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using QR_Generator.Helper;
+using QR_Generator.Matrix;
 using QR_Generator.Models;
 using QR_Generator.QRData;
 using QR_Generator.Services;
@@ -43,6 +44,9 @@ namespace QR_Generator
 
             var bitData = new BitData(config.EncodingMode, lengthBits, QRrequest.Message, dataCodewordssInfo);
 
+            var matrix = new BaseMatrix(config.Version, config.ErrorCorrectionLevel, 3);
+            await matrix.DrawFixedPatterns();
+
             return new OkObjectResult(
                 $"Length: {QRrequest.Message.Length}, \n" +
                 $"Mode: {config.EncodingMode}, \n" +
@@ -50,7 +54,8 @@ namespace QR_Generator
                 $"ECL: {config.ErrorCorrectionLevel}\n" +
                 $"LengthBits: {lengthBits}\n" +
                 $"TotalDataCodewordss: {dataCodewordssInfo.TotalDataCodewords}\n" +
-                $"bitData: \n {bitData}\n");
+                /*$"bitData: \n{bitData}\n" +*/
+                $"matrix: \n{matrix}\n");
         }
     }
 }

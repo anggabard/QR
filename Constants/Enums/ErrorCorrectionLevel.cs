@@ -2,8 +2,8 @@
 
 public enum ErrorCorrectionLevel 
 {
-    L,
-    M,
-    Q,
-    H
+    L = 1,
+    M = 0,
+    Q = 3,
+    H = 2
 }
