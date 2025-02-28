@@ -7,11 +7,11 @@ namespace QR_Generator.Services;
 
 public class ErrorCorrectionCodeWordsAndBlockInformationService : StartupService
 {
-    private Dictionary<int, Dictionary<ErrorCorrectionLevel, DataCodewords>> VersionDataCodewords { get; set; }
+    private Dictionary<int, Dictionary<ErrorCorrectionLevel, DataCodewordsRaw>> VersionDataCodewords { get; set; }
 
     public override void Initialize()
     {
-        VersionDataCodewords = JsonHelper.LoadFromAssembly<Dictionary<int, Dictionary<ErrorCorrectionLevel, DataCodewords>>>("QR_Generator.Config.CodeWordsBlockInformation.ErrorCorrectionCodeWordsAndBlockInformation.json");
+        VersionDataCodewords = JsonHelper.LoadFromAssembly<Dictionary<int, Dictionary<ErrorCorrectionLevel, DataCodewordsRaw>>>("QR_Generator.Config.CodeWordsBlockInformation.ErrorCorrectionCodeWordsAndBlockInformation.json");
     }
 
     private static void CheckVersion(int version)
@@ -22,15 +22,33 @@ public class ErrorCorrectionCodeWordsAndBlockInformationService : StartupService
         }
     }
 
-    public int GetTotalDataCodewordss(int version, ErrorCorrectionLevel errorCorrectionLevel)
+    private DataCodewordsInfo ConvertToInfo(DataCodewordsRaw dataCodewordsRaw)
     {
-        CheckVersion(version);
-        return VersionDataCodewords[version][errorCorrectionLevel].TotalDataCodewords;
+        var info = new DataCodewordsInfo
+        {
+            ECCodewordsPerBlock = dataCodewordsRaw.ECCodewordsPerBlock,
+            Group1 = new Group
+            {
+                NumberOfBlocks = dataCodewordsRaw.NumberOfBlocksInGroup1,
+                NumberOfDataCodewordsPerBlock = dataCodewordsRaw.NumberOfDataCodewordsInEachOfGroup1Blocks,
+            },
+        };
+
+        if (dataCodewordsRaw.NumberOfBlocksInGroup2 != null && dataCodewordsRaw.NumberOfDataCodewordsInEachOfGroup2Blocks != null)
+        {
+            info.Group2 = new Group
+            {
+                NumberOfBlocks = (int)dataCodewordsRaw.NumberOfBlocksInGroup2,
+                NumberOfDataCodewordsPerBlock = (int)dataCodewordsRaw.NumberOfDataCodewordsInEachOfGroup2Blocks
+            };
+        }
+
+        return info;
     }
 
-    public int GetECCodewordsPerBlock(int version, ErrorCorrectionLevel errorCorrectionLevel)
+    public DataCodewordsInfo Get(int version, ErrorCorrectionLevel errorCorrectionLevel)
     {
         CheckVersion(version);
-        return VersionDataCodewords[version][errorCorrectionLevel].ECCodewordsPerBlock;
+        return ConvertToInfo(VersionDataCodewords[version][errorCorrectionLevel]);
     }
 }

@@ -1,29 +1,34 @@
 ﻿using QR_Generator.Constants.Dictionaries;
 using QR_Generator.Constants.Enums;
-using QR_Generator.Helper;
+using QR_Generator.Extensions;
+using QR_Generator.Models;
 using System.Text;
 
 namespace QR_Generator.QRData;
 
 public class BitData
 {
+    private readonly List<byte> TempData = [];
     private readonly List<byte> Data = [];
-    private readonly byte[] n_236 = [1, 1, 1, 0, 1, 1, 0, 0];
-    private readonly byte[] n_17 = [0, 0, 0, 1, 0, 0, 0, 1];
 
-    public BitData(EncodingMode encodingMode, int lengthBits, string message, int totalDataCodewords, int ECCodewordsPerBlock)
+
+    public BitData(EncodingMode encodingMode, int lengthBits, string message, DataCodewordsInfo dataCodewordsInfo)
     {
-        AddEncodingMode(encodingMode);
-        AddNumber(lengthBits, message.Length);//AddMessageLenght
+        TempData.AddEncodingMode(encodingMode);
+        TempData.AddNumber(lengthBits, message.Length);//AddMessageLenght
         AddMesage(encodingMode, message);
-        AddTerminationBlock(totalDataCodewords);
-        FillRemainingCodewords(totalDataCodewords);
-        AddEDC(ECCodewordsPerBlock);
+        AddTerminationBlock(dataCodewordsInfo.TotalDataCodewords);
+        FillRemainingCodewords(dataCodewordsInfo.TotalDataCodewords);
+
+        AddErrorCorrection(dataCodewordsInfo);
     }
 
     private void FillRemainingCodewords(int totalDataCodewords)
     {
-        var remainingCodewords = totalDataCodewords - Data.Count / 8;
+        byte[] n_236 = [1, 1, 1, 0, 1, 1, 0, 0];
+        byte[] n_17 = [0, 0, 0, 1, 0, 0, 0, 1];
+
+        var remainingCodewords = totalDataCodewords - TempData.Count / 8;
         if (remainingCodewords == 0)
             return;
 
@@ -31,33 +36,33 @@ public class BitData
         {
             if (i % 2 == 0)
             {
-                Data.AddRange(n_17);
+                TempData.AddRange(n_17);
             }
             else
             {
-                Data.AddRange(n_236);
+                TempData.AddRange(n_236);
             }
         }
     }
 
     private void AddTerminationBlock(int totalDataCodewords)
     {
-        var remainingBits = totalDataCodewords * 8 - Data.Count;
+        var remainingBits = totalDataCodewords * 8 - TempData.Count;
         var count = remainingBits > 4 ? 4 : remainingBits;
         if (count == 0)
             return;
 
         for (int i = 0; i < count; i++)
         {
-            Data.Add(0);
+            TempData.Add(0);
         }
 
-        if (totalDataCodewords * 8 - Data.Count > 0 && Data.Count % 8 != 0)
+        if (totalDataCodewords * 8 - TempData.Count > 0 && TempData.Count % 8 != 0)
         {
-            var remainingZeros = 8 - Data.Count % 8;
+            var remainingZeros = 8 - TempData.Count % 8;
             for (int i = 0; i < remainingZeros; i++)
             {
-                Data.Add(0);
+                TempData.Add(0);
             }
         }
     }
@@ -81,15 +86,15 @@ public class BitData
             var group = int.Parse(message.Substring(i, Math.Min(3, message.Length - i)));
             if (group > 99)
             {
-                AddNumber(10, group);
+                TempData.AddNumber(10, group);
             }
             else if (group < 10)
             {
-                AddNumber(4, group);
+                TempData.AddNumber(4, group);
             }
             else
             {
-                AddNumber(7, group);
+                TempData.AddNumber(7, group);
             }
         }
     }
@@ -112,7 +117,7 @@ public class BitData
                 padding = 6;
             }
 
-            AddNumber(padding, value);
+            TempData.AddNumber(padding, value);
         }
     }
 
@@ -124,24 +129,8 @@ public class BitData
 
             foreach (char bit in binaryString)
             {
-                Data.Add((byte)(bit - '0'));
+                TempData.Add((byte)(bit - '0'));
             }
-        }
-    }
-
-    private void AddNumber(int padding, int value)
-    {
-        for (int i = padding - 1; i >= 0; i--)
-        {
-            Data.Add((byte)(value >> i & 1));
-        }
-    }
-
-    private void AddEncodingMode(EncodingMode encodingMode)
-    {
-        for (int i = 4 - 1; i >= 0; i--)
-        {
-            Data.Add((byte)((int)encodingMode >> i & 1));
         }
     }
 
@@ -151,51 +140,72 @@ public class BitData
 
         for (int i = 0; i < mask.Count; i++)
         {
-            result.Add((byte)(Data[i] ^ mask[i]));
+            result.Add((byte)(TempData[i] ^ mask[i]));
         }
 
         return result;
     }
 
-    public List<byte> GetByteList()
+    private void AddErrorCorrection(DataCodewordsInfo dataCodewordsInfo)
     {
-        if (Data == null)
+        var dataBlocks = SplitIntoBlocks(dataCodewordsInfo);
+        var errorCorrectionBlocks = dataBlocks.Select(block => block.EDC(dataCodewordsInfo.ECCodewordsPerBlock));
+        MergeInterleaved(dataBlocks, errorCorrectionBlocks);
+    }
+
+    private List<byte[]> SplitIntoBlocks(DataCodewordsInfo dataCodewordsInfo)
+    {
+        var data = TempData.GetByteList().ToArray();
+        List<byte[]> blocks = [];
+
+        var skip = 0;
+        var take = dataCodewordsInfo.Group1.NumberOfDataCodewordsPerBlock;
+        for (int i = 0; i < dataCodewordsInfo.Group1.NumberOfBlocks; i++)
         {
-            throw new ArgumentNullException(nameof(Data));
+            blocks.Add(data.Skip(skip).Take(take).ToArray());
+            skip += take;
         }
 
-        if (Data.Count % 8 != 0)
+        if (dataCodewordsInfo.Group2 != null)
         {
-            throw new ArgumentException("The bit list length must be a multiple of 8.", nameof(Data));
-        }
-
-        var byteList = new List<byte>();
-
-        for (int i = 0; i < Data.Count; i += 8)
-        {
-            byte currentByte = 0;
-            for (int j = 0; j < 8; j++)
+            take = dataCodewordsInfo.Group2.NumberOfDataCodewordsPerBlock;
+            for (int i = 0; i < dataCodewordsInfo.Group2.NumberOfBlocks; i++)
             {
-                currentByte = (byte)((currentByte << 1) | Data[i + j]);
+                blocks.Add(data.Skip(skip).Take(take).ToArray());
+                skip += take;
             }
-            byteList.Add(currentByte);
         }
 
-        return byteList;
+        return blocks;
     }
 
-    public void AddEDC(int ECCodewordsPerBlock)
+    private void MergeInterleaved(List<byte[]> dataBlocks, IEnumerable<byte[]> errorCorrectionBlocks)
     {
-        var polyCoef = GetByteList().ToArray();
-        byte[] messagePoly = new byte[Data.Count / 8 + ECCodewordsPerBlock];
-        Array.Copy(polyCoef, messagePoly, polyCoef.Length);
+        List<byte> mergedData = [];
 
-        var EDC = PolynomialOperationsHelper.PolyRest(messagePoly, PolynomialOperationsHelper.GetGeneratorPoly(ECCodewordsPerBlock));
-        foreach (var codeword in EDC)
+        int maxDataBlockSize = dataBlocks.Max(b => b.Length);
+        for (int i = 0; i < maxDataBlockSize; i++)
         {
-            AddNumber(8, codeword);
+            foreach (var block in dataBlocks)
+            {
+                if (i < block.Length)
+                    mergedData.Add(block[i]);
+            }
         }
+
+        int maxECBlockSize = errorCorrectionBlocks.Max(b => b.Length);
+        for (int i = 0; i < maxECBlockSize; i++)
+        {
+            foreach (var block in errorCorrectionBlocks)
+            {
+                if (i < block.Length)
+                    mergedData.Add(block[i]);
+            }
+        }
+
+        Data.AddByteArray([.. mergedData]);
     }
+   
     public override string ToString()
     {
         StringBuilder sb = new();
@@ -213,10 +223,8 @@ public class BitData
             {
                 sb.Append('\n');
             }
-
         }
 
         return sb.ToString();
     }
-
 }

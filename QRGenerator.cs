@@ -39,10 +39,9 @@ namespace QR_Generator
             (config.Version, config.ErrorCorrectionLevel) = characterCapacitiesService.GetMinVersionAndMaxErrorCorrection(config.EncodingMode, QRrequest.Message.Length);
 
             var lengthBits = LengthBitsHelper.GetLengthBits(config.EncodingMode, config.Version);
-            var totalDataCodewordss = codeWordsAndBlockInformationService.GetTotalDataCodewordss(config.Version, config.ErrorCorrectionLevel);
-            var ECCodewordsPerBlock = codeWordsAndBlockInformationService.GetECCodewordsPerBlock(config.Version, config.ErrorCorrectionLevel);
+            var dataCodewordssInfo = codeWordsAndBlockInformationService.Get(config.Version, config.ErrorCorrectionLevel);
 
-            var bitData = new BitData(config.EncodingMode, lengthBits, QRrequest.Message, totalDataCodewordss, ECCodewordsPerBlock);
+            var bitData = new BitData(config.EncodingMode, lengthBits, QRrequest.Message, dataCodewordssInfo);
 
             return new OkObjectResult(
                 $"Length: {QRrequest.Message.Length}, \n" +
@@ -50,7 +49,7 @@ namespace QR_Generator
                 $"Version: {config.Version}, \n" +
                 $"ECL: {config.ErrorCorrectionLevel}\n" +
                 $"LengthBits: {lengthBits}\n" +
-                $"TotalDataCodewordss: {totalDataCodewordss}\n" +
+                $"TotalDataCodewordss: {dataCodewordssInfo.TotalDataCodewords}\n" +
                 $"bitData: \n {bitData}\n");
         }
     }
