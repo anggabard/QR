@@ -1,5 +1,6 @@
 ﻿using QR_Generator.Constants.Enums;
 using QR_Generator.Constants.Enums.Matrix;
+using QR_Generator.Extensions;
 using System.Text;
 
 namespace QR_Generator.Matrix;
@@ -82,7 +83,7 @@ public class BaseMatrix
                       (centerRow == 6 && centerCol == positions[^1]) ||
                       (centerRow == positions[^1] && centerCol == 6)))
                 {
-                    patternTopLeftLocations.Add(Tuple.Create(centerRow - 2, centerCol - 2));
+                    patternTopLeftLocations.Add(Tuple.Create(centerRow + 2, centerCol + 2));
                 }
             }
         }
@@ -197,7 +198,7 @@ public class BaseMatrix
                 }
                 else
                 {
-                    sb.Append(matrix[i, j] == 1 ? "██" : "  ");
+                    sb.Append(matrix[i, j] == Color.Black.ToNullableByte() ? "██" : "  ");
                 }
                 sb.Append(' ');
             }
