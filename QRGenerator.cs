@@ -21,10 +21,8 @@ namespace QR_Generator
         {
             logger.LogInformation("C# HTTP trigger function processed a request.");
 
-            // Read the body from the HttpRequest
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
-            // Manually deserialize the JSON body into your custom model
             var QRrequest = JsonSerializer.Deserialize<QRRequest>(requestBody);
 
             if (QRrequest == null || string.IsNullOrEmpty(QRrequest.Message))
@@ -42,10 +40,13 @@ namespace QR_Generator
             var lengthBits = LengthBitsHelper.GetLengthBits(config.EncodingMode, config.Version);
             var dataCodewordssInfo = codeWordsAndBlockInformationService.Get(config.Version, config.ErrorCorrectionLevel);
 
-            var bitData = new BitData(config.EncodingMode, lengthBits, QRrequest.Message, dataCodewordssInfo);
+            var bitData = await Task.Run(() => new BitData(config.EncodingMode, lengthBits, QRrequest.Message, dataCodewordssInfo));
 
-            var matrix = new BaseMatrix(config.Version, config.ErrorCorrectionLevel, 3);
-            await matrix.DrawFixedPatterns();
+            var patternsMatrix = new PatternsMatrix(config.Version);
+            await patternsMatrix.DrawFixedPatterns();
+
+            var dataMatrix = patternsMatrix.ToDataMatrix(config.ErrorCorrectionLevel);
+            await dataMatrix.SetData(bitData.GetData());
 
             return new OkObjectResult(
                 $"Length: {QRrequest.Message.Length}, \n" +
@@ -55,7 +56,7 @@ namespace QR_Generator
                 $"LengthBits: {lengthBits}\n" +
                 $"TotalDataCodewordss: {dataCodewordssInfo.TotalDataCodewords}\n" +
                 /*$"bitData: \n{bitData}\n" +*/
-                $"matrix: \n{matrix}\n");
+                $"matrix: \n{dataMatrix}\n");
         }
     }
 }

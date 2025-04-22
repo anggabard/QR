@@ -11,7 +11,6 @@ public class BitData
     private readonly List<byte> TempData = [];
     private readonly List<byte> Data = [];
 
-
     public BitData(EncodingMode encodingMode, int lengthBits, string message, DataCodewordsInfo dataCodewordsInfo)
     {
         TempData.AddEncodingMode(encodingMode);
@@ -22,6 +21,8 @@ public class BitData
 
         AddErrorCorrection(dataCodewordsInfo);
     }
+
+    public List<byte> GetData() { return Data; }
 
     private void FillRemainingCodewords(int totalDataCodewords)
     {
