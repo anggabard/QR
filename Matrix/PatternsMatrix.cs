@@ -1,5 +1,6 @@
 ﻿using QR_Generator.Constants.Enums;
 using QR_Generator.Constants.Enums.Matrix;
+using QR_Generator.Services;
 
 namespace QR_Generator.Matrix;
 
@@ -34,10 +35,9 @@ public class PatternsMatrix(int version) : BaseMatrix(version)
         await DrawDottedLine(6, 8, MatrixSize - 16);
         await DrawDottedLine(8, 6, MatrixSize - 16, LineType.Vertical);
 
-
         if (version >= 7)
         {
-            //TODO: Add version information
+            await DrawVersionInformation();
         }
     }
 
@@ -64,6 +64,42 @@ public class PatternsMatrix(int version) : BaseMatrix(version)
             await DrawSquare(top + 1, left + 1, 3, Color.White);
             matrix[top + 2, left + 2] = 1;
         }
+    }
+
+    private async Task DrawVersionInformation()
+    {
+        var versionInformationCode = VersionInformationService.Get(version);
+
+        ArgumentNullException.ThrowIfNull(versionInformationCode);
+        if (versionInformationCode.Count != 6 * 3) throw new ArgumentOutOfRangeException(nameof(versionInformationCode));
+
+        //Bottom-Left
+        await Task.Run(() =>
+        {
+            int index = 0;
+            for (int j = 5; j >= 0; j--)
+            {
+                for (int i = MatrixSize - 9; i >= MatrixSize - 11; i--)
+                {
+                    matrix[i, j] = versionInformationCode[index];
+                    index++;
+                }
+            }
+        });
+
+        //Top-Right
+        await Task.Run(() =>
+        {
+            int index = 0;
+            for (int i = 5; i >= 0; i--)
+            {
+                for (int j = MatrixSize - 9; j >= MatrixSize - 11; j--)
+                {
+                    matrix[i, j] = versionInformationCode[index];
+                    index++;
+                }
+            }
+        });
     }
 
     private List<Tuple<int, int>> GetAlignmentPatternTopLeftLocations()

@@ -20,11 +20,10 @@ foreach(var startupType in startupTypes)
 
 var host = builder.Build();
 
-// Resolve MyService and force initialization
 foreach (var serviceType in startupTypes)
 {
     var service = (StartupService)host.Services.GetRequiredService(serviceType);
-    await service.InitializeAsync(); // Initialize the service
+    await service.InitializeAsync();
 }
 
 host.Run();
