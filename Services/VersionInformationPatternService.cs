@@ -3,13 +3,13 @@ using QR_Generator.Services.Base;
 
 namespace QR_Generator.Services;
 
-public class VersionInformationService : StartupService
+public class VersionInformationPatternService : StartupService
 {
-    private static Dictionary<int, List<byte>> VersionInformationCode;
+    private static Dictionary<int, List<byte>> InformationPatterns = [];
 
     public override void Initialize()
     {
-        VersionInformationCode = JsonHelper.LoadFromAssembly<Dictionary<int, string>>("QR_Generator.Config.VersionInformation.VersionInformation.json")
+        InformationPatterns = JsonHelper.LoadFromAssembly<Dictionary<int, string>>("QR_Generator.Config.Version.VersionInformationPattern.json")
                                         .ToDictionary(
                                             kvp => kvp.Key,
                                             kvp => GetValueFromString(kvp.Value)
@@ -23,7 +23,7 @@ public class VersionInformationService : StartupService
             return null;
         }
 
-        return VersionInformationCode[version];
+        return InformationPatterns[version];
     }
 
     private static List<byte> GetValueFromString(string binaryString)

@@ -1,33 +1,35 @@
-﻿using QR_Generator.Constants.Enums;
-
-namespace QR_Generator.Matrix;
+﻿namespace QR_Generator.Matrix;
 
 public class DataMatrix : BaseMatrix
 {
     private readonly byte?[,] patternsMatrix;
-    private readonly ErrorCorrectionLevel errorCorrectionLevel;
 
-    internal DataMatrix(int version, byte?[,] patternsMatrix, ErrorCorrectionLevel errorCorrectionLevel) : base(version)
+    internal DataMatrix(int version, byte?[,] patternsMatrix) : base(version)
     {
         this.patternsMatrix = patternsMatrix;
-        this.errorCorrectionLevel = errorCorrectionLevel;
+        //matrix = patternsMatrix;
     }
 
     public Task SetData(List<byte> data)
     {
         return Task.Run(() =>
         {
-            int index = 0;
-            for (var cursor = new Cursor(MatrixSize); !cursor.Done(); cursor.Next())
+            try
             {
-                if (index > data.Count - 1) return;
-                var bit = data.ElementAt(index);
+                for (var cursor = new Cursor(MatrixSize); !cursor.Done(); cursor.Next())
+                {
+                    var bit = data.ElementAtOrDefault(cursor.byteIndex);
 
-                if (patternsMatrix[cursor.i, cursor.j] != null) continue;
-                //TODO: Fix this
+                    if (cursor.i == 8 && cursor.j == 5) cursor.j--; //Skip the timing line
+                    if (patternsMatrix[cursor.i, cursor.j] != null) continue;
 
-                matrix[cursor.i, cursor.j] = bit;
-                index++;
+                    matrix[cursor.i, cursor.j] = bit;
+                    cursor.byteIndex++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         });
     }

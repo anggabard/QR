@@ -7,7 +7,7 @@ namespace QR_Generator.Services;
 
 public class ErrorCorrectionCodeWordsAndBlockInformationService : StartupService
 {
-    private Dictionary<int, Dictionary<ErrorCorrectionLevel, DataCodewordsRaw>> VersionDataCodewords { get; set; }
+    private Dictionary<int, Dictionary<ErrorCorrectionLevel, DataCodewordsRaw>> VersionDataCodewords = [];
 
     public override void Initialize()
     {

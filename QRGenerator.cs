@@ -45,7 +45,7 @@ namespace QR_Generator
             var patternsMatrix = new PatternsMatrix(config.Version);
             await patternsMatrix.DrawFixedPatterns();
 
-            var dataMatrix = patternsMatrix.ToDataMatrix(config.ErrorCorrectionLevel);
+            var dataMatrix = patternsMatrix.ToDataMatrix();
             await dataMatrix.SetData(bitData.GetData());
 
             return new OkObjectResult(
@@ -55,7 +55,7 @@ namespace QR_Generator
                 $"ECL: {config.ErrorCorrectionLevel}\n" +
                 $"LengthBits: {lengthBits}\n" +
                 $"TotalDataCodewordss: {dataCodewordssInfo.TotalDataCodewords}\n" +
-                /*$"bitData: \n{bitData}\n" +*/
+                $"bitData: \n{bitData}\n" +
                 $"matrix: \n{dataMatrix}\n");
         }
     }

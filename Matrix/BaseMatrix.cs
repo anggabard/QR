@@ -31,6 +31,10 @@ public class BaseMatrix
                 else
                 {
                     sb.Append(matrix[i, j] == 1 ? "██" : "  ");
+                    //if (matrix[i, j] == 1) sb.Append("██");
+                    //else if (matrix[i, j] == 0) sb.Append("  ");
+                    //else if (matrix[i, j] > 9 && matrix[i, j] < 100) sb.Append(matrix[i, j]);
+                    //else sb.Append('0' + matrix[i, j].ToString());
                 }
                 sb.Append(' ');
             }

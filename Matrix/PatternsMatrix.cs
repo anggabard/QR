@@ -41,9 +41,9 @@ public class PatternsMatrix(int version) : BaseMatrix(version)
         }
     }
 
-    public DataMatrix ToDataMatrix(ErrorCorrectionLevel errorCorrectionLevel)
+    public DataMatrix ToDataMatrix()
     {
-        return new DataMatrix(version, matrix, errorCorrectionLevel);
+        return new DataMatrix(version, matrix);
     }
 
     private async Task DrawFinderPattern(int x, int y)
@@ -56,19 +56,20 @@ public class PatternsMatrix(int version) : BaseMatrix(version)
 
     private async Task DrawAlignmentPatterns()
     {
-        var patternTopLeftLocations = GetAlignmentPatternTopLeftLocations();
+        var patternCenterCoordotantes = VersionAlignmentPatternService.Get(version);
+        ArgumentNullException.ThrowIfNull(patternCenterCoordotantes);
 
-        foreach (var (top, left) in patternTopLeftLocations)
+        foreach (var (x, y) in patternCenterCoordotantes)
         {
-            await DrawSquare(top, left, 5);
-            await DrawSquare(top + 1, left + 1, 3, Color.White);
-            matrix[top + 2, left + 2] = 1;
+            await DrawSquare(x - 2, y - 2, 5);
+            await DrawSquare(x - 1, y - 1, 3, Color.White);
+            matrix[x, y] = 1;
         }
     }
 
     private async Task DrawVersionInformation()
     {
-        var versionInformationCode = VersionInformationService.Get(version);
+        var versionInformationCode = VersionInformationPatternService.Get(version);
 
         ArgumentNullException.ThrowIfNull(versionInformationCode);
         if (versionInformationCode.Count != 6 * 3) throw new ArgumentOutOfRangeException(nameof(versionInformationCode));
@@ -100,48 +101,6 @@ public class PatternsMatrix(int version) : BaseMatrix(version)
                 }
             }
         });
-    }
-
-    private List<Tuple<int, int>> GetAlignmentPatternTopLeftLocations()
-    {
-        List<int> positions = GetAlignmentPositions(version);
-        List<Tuple<int, int>> patternTopLeftLocations = [];
-
-        foreach (int centerRow in positions)
-        {
-            foreach (int centerCol in positions)
-            {
-                // Skip Finder Pattern areas
-                if (!((centerRow == 6 && centerCol == 6) ||
-                      (centerRow == 6 && centerCol == positions[^1]) ||
-                      (centerRow == positions[^1] && centerCol == 6)))
-                {
-                    patternTopLeftLocations.Add(Tuple.Create(centerRow + 2, centerCol + 2));
-                }
-            }
-        }
-
-        return patternTopLeftLocations;
-    }
-
-    private List<int> GetAlignmentPositions(int version)
-    {
-        if (version == 1) return []; // No alignment patterns in Version 1
-
-        int numPatterns = (version / 7) + 2; // Calculate the number of alignment positions
-        List<int> positions = [];
-
-        // Calculate equally spaced positions
-        int start = 6;
-        int end = 4 * version + 6; // Max matrix size
-        int step = (end - start) / (numPatterns - 1);
-
-        for (int i = 0; i < numPatterns; i++)
-        {
-            positions.Add(start + (i * step));
-        }
-
-        return positions;
     }
 
     private async Task DrawSquare(int x, int y, int lenght, Color color = Color.Black)

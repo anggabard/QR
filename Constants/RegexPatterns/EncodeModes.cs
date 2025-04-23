@@ -7,11 +7,11 @@ public static partial class RegexPatterns
     [GeneratedRegex(@"^\d*$", RegexOptions.CultureInvariant | RegexOptions.Compiled)]
     public static partial Regex NumericRegex();
 
-    [GeneratedRegex(@"^[\dA-Z $%*+\-./:]*$", RegexOptions.CultureInvariant | RegexOptions.Compiled)]
+    [GeneratedRegex(@"^[\dA-Z $%*+\-.\/:]*$", RegexOptions.CultureInvariant | RegexOptions.Compiled)]
     public static partial Regex AlphanumericRegex();
 
     [GeneratedRegex(@"^[\x00-\xff]*$", RegexOptions.CultureInvariant | RegexOptions.Compiled)]
-    public static partial Regex Latin1Regex();
+    public static partial Regex ByteRegex();
 
     [GeneratedRegex(@"\p{IsCJKUnifiedIdeographs}|\p{IsHiragana}|\p{IsKatakana}*$", RegexOptions.CultureInvariant | RegexOptions.Compiled)]
     public static partial Regex KanjiRegex();

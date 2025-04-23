@@ -13,7 +13,6 @@
     <None Remove="Config\CharacterCapacities\Kanji.json" />
     <None Remove="Config\CharacterCapacities\Numeric.json" />
     <None Remove="Config\CodeWordsBlockInformation\ErrorCorrectionCodeWordsAndBlockInformation.json" />
-    <None Remove="Config\VersionInformation\VersionInformation.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Config\CharacterCapacities\Numeric.json">
@@ -31,7 +30,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Config\CodeWordsBlockInformation\ErrorCorrectionCodeWordsAndBlockInformation.json" />
-    <EmbeddedResource Include="Config\VersionInformation\VersionInformation.json" />
+    <EmbeddedResource Include="Config\Version\VersionAlignmentPattern.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\Version\VersionInformationPattern.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />

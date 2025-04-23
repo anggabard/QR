@@ -7,7 +7,7 @@ namespace QR_Generator.Services;
 
 public class CharacterCapacitiesService : StartupService
 {
-    private Dictionary<EncodingMode, EncodingModeCapatity> CharacterCapacities;
+    private Dictionary<EncodingMode, EncodingModeCapatity> CharacterCapacities = [];
 
     public override void Initialize()
     {

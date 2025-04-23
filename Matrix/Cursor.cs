@@ -2,48 +2,42 @@
 
 namespace QR_Generator.Matrix;
 
-internal class Cursor
+internal class Cursor(int matrixLenght)
 {
+    private readonly int MatrixLenght = matrixLenght;
+
     private Direction Direction = Direction.Up;
     private bool shouldMoveLeft = true;
-    private readonly int MatrixLenght;
-    public int i, j;
-
-    public Cursor(int matrixLenght)
-    {
-        MatrixLenght = matrixLenght;
-        i = matrixLenght - 1;
-        j = matrixLenght - 1;
-    }
+    public int i = matrixLenght - 1, j = matrixLenght - 1, byteIndex = 0;
 
     public void Next()
     {
         if (shouldMoveLeft)
         {
-            i--;
+            j--; 
         }
         else
         {
-            if (j - 1 < 0 || j + 1 > MatrixLenght)
+            if (i - 1 < 0 && Direction == Direction.Up)
             {
-                i--;
+                j--;
+                ToggleDirection();
+            } 
+            else if (i + 1 > MatrixLenght - 1 && Direction == Direction.Down)
+            {
+                j--;
                 ToggleDirection();
             }
             else
             {
                 Move(Direction);
-                i++;
             }
-
         }
 
         shouldMoveLeft = !shouldMoveLeft;
     }
 
-    public bool Done()
-    {
-        return i == 0 && j == MatrixLenght - 1;
-    }
+    public bool Done() => i == MatrixLenght - 1 && j == 0;
 
     public void ToggleDirection() => Direction = (Direction)((int)Direction ^ 1);
 
@@ -52,11 +46,12 @@ internal class Cursor
         switch (direction)
         {
             case Direction.Up:
-                j--;
+                i--;
                 break;
             case Direction.Down:
-                j++;
+                i++;
                 break;
         }
+        j++;
     }
 }
