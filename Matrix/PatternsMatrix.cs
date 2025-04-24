@@ -1,5 +1,4 @@
-﻿using QR_Generator.Constants.Enums;
-using QR_Generator.Constants.Enums.Matrix;
+﻿using QR_Generator.Constants.Enums.Matrix;
 using QR_Generator.Services;
 
 namespace QR_Generator.Matrix;

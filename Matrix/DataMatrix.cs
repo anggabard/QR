@@ -7,7 +7,6 @@ public class DataMatrix : BaseMatrix
     internal DataMatrix(int version, byte?[,] patternsMatrix) : base(version)
     {
         this.patternsMatrix = patternsMatrix;
-        //matrix = patternsMatrix;
     }
 
     public Task SetData(List<byte> data)

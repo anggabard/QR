@@ -11,7 +11,7 @@ public class ErrorCorrectionCodeWordsAndBlockInformationService : StartupService
 
     public override void Initialize()
     {
-        VersionDataCodewords = JsonHelper.LoadFromAssembly<Dictionary<int, Dictionary<ErrorCorrectionLevel, DataCodewordsRaw>>>("QR_Generator.Config.CodeWordsBlockInformation.ErrorCorrectionCodeWordsAndBlockInformation.json");
+        VersionDataCodewords = JsonHelper.LoadFromAssembly<Dictionary<int, Dictionary<ErrorCorrectionLevel, DataCodewordsRaw>>>("QR_Generator.Config.CodeWordsBlock.ErrorCorrectionCodeWordsAndBlock.json");
     }
 
     private static void CheckVersion(int version)
