@@ -1,4 +1,5 @@
-﻿using QR_Generator.Helper;
+﻿using QR_Generator.Extensions;
+using QR_Generator.Helper;
 using QR_Generator.Services.Startup;
 
 namespace QR_Generator.Services;
@@ -12,7 +13,7 @@ public class VersionInformationPatternService : StartupService
         InformationPatterns = JsonHelper.LoadFromAssembly<Dictionary<int, string>>("QR_Generator.Config.Version.VersionInformationPattern.json")
                                         .ToDictionary(
                                             kvp => kvp.Key,
-                                            kvp => GetValueFromString(kvp.Value)
+                                            kvp => kvp.Value.GetBytesFromString()
                                         );
     }
 
@@ -26,13 +27,24 @@ public class VersionInformationPatternService : StartupService
         return InformationPatterns[version];
     }
 
-    private static List<byte> GetValueFromString(string binaryString)
+    public static Dictionary<int, List<(int, int)>> GetPatternPositions(int matrixSize)
     {
-        return binaryString.Select(bitChar =>
+        var last = matrixSize - 1;
+        var result = new Dictionary<int, List<(int, int)>>();
+        for (var i = 0; i <= 5; i++)
         {
-            if (bitChar == '0') return (byte)0;
-            if (bitChar == '1') return (byte)1;
-            throw new ArgumentException($"Encountered invalid character: {bitChar}.");
-        }).ToList();
+            result[i] = [(8, i), (last - i, 8)];
+        }
+
+        result[6] = [(8, 7), (last - 6, 8)];
+        result[7] = [(8, 8), (8, last - 7)];
+        result[8] = [(7, 8), (8, last - 6)];
+
+        for (var i = 5; i >= 0; i--)
+        {
+            result[14 - i] = [(i, 8), (8, last - i)];
+        }
+
+        return result;
     }
 }

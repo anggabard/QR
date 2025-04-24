@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
+using QR_Generator.Extensions;
 using QR_Generator.Helper;
 using QR_Generator.Matrix;
 using QR_Generator.Models;
@@ -48,6 +49,9 @@ namespace QR_Generator
             var dataMatrix = patternsMatrix.ToDataMatrix();
             await dataMatrix.SetData(bitData.GetData());
 
+            var maskService = new MaskService(patternsMatrix.GetMatrix(), dataMatrix.GetMatrix(), dataMatrix.MatrixSize);
+            await maskService.GenerateMasks(config.ErrorCorrectionLevel);
+
             return new OkObjectResult(
                 $"Length: {QRrequest.Message.Length}, \n" +
                 $"Mode: {config.EncodingMode}, \n" +
@@ -56,7 +60,7 @@ namespace QR_Generator
                 $"LengthBits: {lengthBits}\n" +
                 $"TotalDataCodewordss: {dataCodewordssInfo.TotalDataCodewords}\n" +
                 //$"bitData: \n{bitData}\n" +
-                $"matrix: \n{dataMatrix}\n");
+                $"matrix: \n{maskService.masks[Constants.Enums.Masks.One].ToQR()}\n");
         }
     }
 }

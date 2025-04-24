@@ -6,7 +6,7 @@ public class BaseMatrix
 {
     protected readonly int version;
     protected byte?[,] matrix;
-    protected int MatrixSize { get { return version * 4 + 17; } }
+    public int MatrixSize { get { return version * 4 + 17; } }
 
     public BaseMatrix(int version)
     {
@@ -14,6 +14,7 @@ public class BaseMatrix
         matrix = new byte?[MatrixSize, MatrixSize];
     }
 
+    public byte?[,] GetMatrix() { return matrix; }
 
     public override string ToString()
     {
@@ -23,22 +24,15 @@ public class BaseMatrix
         {
             for (int j = 0; j < MatrixSize; j++)
             {
+                if (matrix[i, j] == null || matrix[i, j] < 0) sb.Append("XX");
+                else if (matrix[i, j] == 1) sb.Append("██");
+                else if (matrix[i, j] == 0) sb.Append("  ");
+                else if (matrix[i, j] < 9) sb.Append('0' + matrix[i, j].ToString());
+                else if (matrix[i, j] > 9 && matrix[i, j] < 100) sb.Append(matrix[i, j]);
+                else  sb.Append(matrix[i, j] % 100);
 
-                if (matrix[i, j] == null)
-                {
-                    sb.Append("XX");
-                }
-                else
-                {
-                    sb.Append(matrix[i, j] == 1 ? "██" : "  ");
-                    //if (matrix[i, j] == 1) sb.Append("██");
-                    //else if (matrix[i, j] == 0) sb.Append("  ");
-                    //else if (matrix[i, j] > 9 && matrix[i, j] < 100) sb.Append(matrix[i, j]);
-                    //else sb.Append('0' + matrix[i, j].ToString());
-                }
                 sb.Append(' ');
             }
-
             sb.AppendLine();
         }
 
