@@ -1,5 +1,5 @@
 ﻿using QR_Generator.Helper;
-using QR_Generator.Services.Base;
+using QR_Generator.Services.Startup;
 
 namespace QR_Generator.Services;
 

@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "9d1a89e8-8c83-41f9-ad2f-d9b4c58c0106",
+		"name": "QR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6500121"
+	},
+	"item": [
+		{
+			"name": "Byte",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Message\": \"https://www.qrcode.com/\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7043/api/QRG",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7043",
+					"path": [
+						"api",
+						"QRG"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Big",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Message\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7043/api/QRG",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7043",
+					"path": [
+						"api",
+						"QRG"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Numeric",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Message\": \"31415926535897932384626433832795028841971693993\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7043/api/QRG",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7043",
+					"path": [
+						"api",
+						"QRG"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alphanumeric",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Message\": \"ALPHANUMERIC1 2234567$%*+-./: \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7043/api/QRG",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7043",
+					"path": [
+						"api",
+						"QRG"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -55,7 +55,7 @@ namespace QR_Generator
                 $"ECL: {config.ErrorCorrectionLevel}\n" +
                 $"LengthBits: {lengthBits}\n" +
                 $"TotalDataCodewordss: {dataCodewordssInfo.TotalDataCodewords}\n" +
-                $"bitData: \n{bitData}\n" +
+                //$"bitData: \n{bitData}\n" +
                 $"matrix: \n{dataMatrix}\n");
         }
     }

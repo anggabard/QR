@@ -1,4 +1,4 @@
-﻿using QR_Generator.Services.Base;
+﻿using QR_Generator.Services.Startup;
 
 namespace QR_Generator.Helper;
 

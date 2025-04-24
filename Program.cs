@@ -1,7 +1,7 @@
 using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using QR_Generator.Services.Base;
+using QR_Generator.Services.Startup;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 

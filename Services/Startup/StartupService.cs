@@ -1,4 +1,4 @@
-﻿namespace QR_Generator.Services.Base;
+﻿namespace QR_Generator.Services.Startup;
 
 public abstract class StartupService
 {
