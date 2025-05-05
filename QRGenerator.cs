@@ -52,6 +52,8 @@ namespace QR_Generator
             var maskService = new MaskService(patternsMatrix.GetMatrix(), dataMatrix.GetMatrix(), dataMatrix.MatrixSize);
             await maskService.GenerateMasks(config.ErrorCorrectionLevel);
 
+            var QR = maskService.GetFinalQR();
+
             return new OkObjectResult(
                 $"Length: {QRrequest.Message.Length}, \n" +
                 $"Mode: {config.EncodingMode}, \n" +
@@ -60,7 +62,7 @@ namespace QR_Generator
                 $"LengthBits: {lengthBits}\n" +
                 $"TotalDataCodewordss: {dataCodewordssInfo.TotalDataCodewords}\n" +
                 //$"bitData: \n{bitData}\n" +
-                $"matrix: \n{maskService.masks[Constants.Enums.Masks.One].ToQR()}\n");
+                $"matrix: \n{QR.ToQR()}\n");
         }
     }
 }
