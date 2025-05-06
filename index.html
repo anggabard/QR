@@ -60,8 +60,7 @@
 
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-        const data = await response.json();
-        output.textContent = JSON.stringify(data, null, 2);
+        output.textContent = response.body;
       } catch (error) {
         output.textContent = `Error: ${error.message}`;
       }
