@@ -15,22 +15,23 @@ Send a POST request to the API endpoint with the following JSON body:
   "Message": "https://www.qrcode.com/",
   "AsBinary": true
 }
+```
+
+Example:
+```
+curl -X POST https://qrgenerator-anggabard.azurewebsites.net/api/QRG \
+  -H "Content-Type: application/json" \
+  -d '{"Message": "https://example.com", "AsBinary": true}'
+```
 
 🔹 Message
-Type: string
-
-Required: ✅
-
-Description: The message that will be encoded into the QR code.
+	Type: string
+	Required: ✅
+	Description: The message that will be encoded into the QR code.
 
 🔹 AsBinary
-Type: boolean
-
-Required: ❌ (optional)
-
-Default: false
-
-Description:
-
-If false (default), the API returns the QR code as a string-based SVG representation.
+	Type: boolean
+	Required: ❌ (optional)
+	Default: false
+	Description: Specifies whether the QR code is returned as a binary matrix (`true`) or as an SVG/text representation (`false`).
 
