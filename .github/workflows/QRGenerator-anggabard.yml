@@ -1,8 +1,6 @@
 name: Build and deploy .NET Core application to Function App QRGenerator-anggabard
 on:
-  push:
-    branches:
-    - main
+  workflow_dispatch:
 env:
   AZURE_FUNCTIONAPP_NAME: QRGenerator-anggabard
   AZURE_FUNCTIONAPP_PACKAGE_PATH: ./published
@@ -23,7 +21,6 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DOTNET_CORE_VERSION_INPROC }}
-        include-prerelease: True
     - name: Restore
       run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
     - name: Build
