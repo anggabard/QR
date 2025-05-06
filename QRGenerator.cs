@@ -54,15 +54,7 @@ namespace QR_Generator
 
             var QR = maskService.GetFinalQR();
 
-            return new OkObjectResult(
-                $"Length: {QRrequest.Message.Length}, \n" +
-                $"Mode: {config.EncodingMode}, \n" +
-                $"Version: {config.Version}, \n" +
-                $"ECL: {config.ErrorCorrectionLevel}\n" +
-                $"LengthBits: {lengthBits}\n" +
-                $"TotalDataCodewordss: {dataCodewordssInfo.TotalDataCodewords}\n" +
-                //$"bitData: \n{bitData}\n" +
-                $"matrix: \n{QR.ToQR()}\n");
+            return new OkObjectResult($"{QR.ToQR()}");
         }
     }
 }
