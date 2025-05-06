@@ -1,17 +1,16 @@
 name: Build and deploy QRGenerator-anggabard
 on:
-  push:
-    branches:
-    - main
+  workflow_dispatch:
+
 env:
   AZURE_FUNCTIONAPP_NAME: QRGenerator-anggabard
   AZURE_FUNCTIONAPP_PACKAGE_PATH: ./published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
-  CSPROJ_LOCATION: ./QR-Generator.csproj
+  WORKING_DIRECTORY: .
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
@@ -22,37 +21,30 @@ jobs:
         dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
 
     - name: Restore
-      run: dotnet restore "${{ env.CSPROJ_LOCATION }}"
+      run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
 
     - name: Build
-      run: dotnet build "${{ env.CSPROJ_LOCATION }}" --configuration ${{ env.CONFIGURATION }} --no-restore
+      run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
 
     - name: Publish
-      run: dotnet publish "${{ env.CSPROJ_LOCATION }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}"
+      run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}"
 
     - name: Publish Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: functionapp
         path: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v4
-      with:
-        name: functionapp
-        path: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        
+    - name: Zip function app package
+      run: Compress-Archive -Path "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}\*" -DestinationPath "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}.zip"
 
     - name: Azure Login
       uses: azure/login@v2
       with:
         creds: ${{ secrets.QRGenerator_anggabard_SPN }}
-        
+
     - name: Deploy to Azure Function App
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}.zip
