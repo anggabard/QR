@@ -28,26 +28,6 @@
       margin-top: 1rem;
       color: #555;
     }
-
-    #grid {
-      margin-top: 1rem;
-      display: grid;
-      gap: 1px;
-      background-color: #999; /* border around the grid */
-    }
-
-    .cell {
-      width: 20px;
-      height: 20px;
-    }
-
-    .black {
-      background-color: black;
-    }
-
-    .white {
-      background-color: white;
-    }
   </style>
 </head>
 <body>
@@ -56,8 +36,8 @@
   <input type="text" id="messageInput" placeholder="Type your message" />
   <button onclick="sendMessage()">Send</button>
 
-  <div id="output">Waiting for input...</div>
-  <div id="grid"></div>
+  <pre id="output">Waiting for input...</pre>
+  <canvas id="qrCanvas" style="margin-top: 1rem; border: 1px solid #ccc;"></canvas>
 
   <script>
     const inputField = document.getElementById('messageInput');
@@ -98,16 +78,23 @@
     }
 
     function renderMatrix(text) {
-      const rows = text.trim().split('\n');
-      const cols = rows[0].trim().split(/\s+/).length;
-      grid.style.gridTemplateColumns = `repeat(${cols}, 20px)`;
+      const canvas = document.getElementById('qrCanvas');
+      const ctx = canvas.getContext('2d');
+      const rows = text.trim().split('\n').map(row => row.trim().split(/\s+/));
+      const size = rows.length;
+      const cellSize = 10;
+      const canvasSize = size * cellSize;
 
-      for (let row of rows) {
-        const values = row.trim().split(/\s+/);
-        for (let val of values) {
-          const cell = document.createElement('div');
-          cell.classList.add('cell', val === '1' ? 'black' : 'white');
-          grid.appendChild(cell);
+      canvas.width = canvasSize;
+      canvas.height = canvasSize;
+
+      // Optional: remove anti-aliasing completely
+      ctx.imageSmoothingEnabled = false;
+
+      for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+          ctx.fillStyle = rows[y][x] === '1' ? '#000' : '#fff';
+          ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
         }
       }
     }
