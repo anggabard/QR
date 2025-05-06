@@ -46,7 +46,7 @@ jobs:
         path: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 
     - name: Zip function app package
-      run: Compress-Archive -Path "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}\QRFunction\*" -DestinationPath "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}.zip"
+      run: Compress-Archive -Path "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}\*" -DestinationPath "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}.zip"
 
     - name: Azure Login
       uses: azure/login@v2
