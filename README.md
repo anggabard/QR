@@ -24,14 +24,27 @@ curl -X POST https://qrgenerator-anggabard.azurewebsites.net/api/QRG \
   -d '{"Message": "https://example.com", "AsBinary": true}'
 ```
 
-🔹 Message
-	Type: string
-	Required: ✅
-	Description: The message that will be encoded into the QR code.
+🔹 Message  
 
-🔹 AsBinary
-	Type: boolean
-	Required: ❌ (optional)
-	Default: false
-	Description: Specifies whether the QR code is returned as a binary matrix (`true`) or as an SVG/text representation (`false`).
+	Type: string  
 
+	Required: ✅  
+
+	Description: The message that will be encoded into the QR code.  
+
+
+🔹 AsBinary  
+
+	Type: boolean  
+
+	Required: ❌ (optional)  
+
+	Default: false  
+
+	Description: Specifies whether the QR code is returned as a binary matrix (`true`) or as an SVG/text representation (`false`).  
+
+
+
+## License
+
+This project is licensed under the MIT License.
