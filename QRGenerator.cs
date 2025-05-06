@@ -54,7 +54,7 @@ namespace QR_Generator
 
             var QR = maskService.GetFinalQR();
 
-            return new OkObjectResult($"{QR.ToQR()}");
+            return new OkObjectResult($"{QR.ToQR(QRrequest.AsBinary)}");
         }
     }
 }
