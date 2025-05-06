@@ -10,7 +10,7 @@ env:
   WORKING_DIRECTORY: .
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
@@ -32,19 +32,9 @@ jobs:
     - name: Publish Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: QRFunction
+        name: functionapp
         path: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v4
-      with:
-        name: QRFunction
-        path: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-
+        
     - name: Zip function app package
       run: Compress-Archive -Path "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}\*" -DestinationPath "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}.zip"
 
