@@ -1,7 +1,8 @@
 name: Build and deploy QRGenerator-anggabard
 on:
-  workflow_dispatch:
-
+  push:
+    branches:
+    - main
 env:
   AZURE_FUNCTIONAPP_NAME: QRGenerator-anggabard
   AZURE_FUNCTIONAPP_PACKAGE_PATH: ./published
