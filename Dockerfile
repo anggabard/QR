@@ -1,5 +1,5 @@
-# Step 1: Use the official .NET SDK image to build the function
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# Step 1: Use the official .NET SDK image for Windows
+FROM mcr.microsoft.com/dotnet/sdk:8.0-windows AS build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -20,8 +20,8 @@ RUN dotnet build -c Release --no-restore
 # Step 2: Publish the function
 RUN dotnet publish -c Release -o /app/publish --no-build
 
-# Step 3: Use the official Azure Functions runtime image
-FROM mcr.microsoft.com/azure-functions/dotnet:4 AS base
+# Step 3: Use the official Azure Functions runtime image for Windows
+FROM mcr.microsoft.com/azure-functions/dotnet:4-windows AS base
 
 # Set the working directory inside the container
 WORKDIR /home/site/wwwroot
@@ -29,5 +29,5 @@ WORKDIR /home/site/wwwroot
 # Copy the published files from the build stage to the runtime stage
 COPY --from=build /app/publish /home/site/wwwroot
 
-# Set the entry point to start the Azure Functions runtime
-ENTRYPOINT ["func", "host", "start", "--pause-on-error", "--no-build"]
+# Set the entry point to run the function app
+ENTRYPOINT ["dotnet", "QR-Generator.exe"]
