@@ -9,6 +9,7 @@ using QR_Generator.Models;
 using QR_Generator.QRData;
 using QR_Generator.Services;
 using System.Text.Json;
+using System.IO;
 
 namespace QR_Generator
 {
@@ -18,7 +19,7 @@ namespace QR_Generator
         ErrorCorrectionCodeWordsAndBlockInformationService codeWordsAndBlockInformationService)
     {
         [Function("QRG")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "QRG")] HttpRequest req)
         {
             logger.LogInformation("C# HTTP trigger function processed a request.");
 
@@ -55,6 +56,16 @@ namespace QR_Generator
             var QR = maskService.GetFinalQR();
 
             return new OkObjectResult($"{QR.ToQR(QRrequest.AsBinary)}");
+        }
+
+        [Function("Index")]
+        public IActionResult ServeIndex([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "")] HttpRequest req)
+        {
+            var path = Path.Combine(AppContext.BaseDirectory, "index.html");
+            if (!File.Exists(path))
+                return new NotFoundResult();
+            var html = File.ReadAllText(path);
+            return new ContentResult { Content = html, ContentType = "text/html" };
         }
     }
 }

@@ -57,7 +57,7 @@
       output.textContent = 'Sending...';
 
       try {
-        const response = await fetch('https://qrgenerator-anggabard.azurewebsites.net/api/QRG', {
+        const response = await fetch('/QRG', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

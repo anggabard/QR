@@ -1,33 +1,27 @@
-# Step 1: Use the official .NET SDK image for Windows
-FROM mcr.microsoft.com/dotnet/sdk:8.0-windows AS build
+# Build stage: Linux .NET SDK
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
 
-# Set the working directory inside the container
-WORKDIR /app
+# Copy project into container (build from repo context)
+COPY . .
 
-# Clone the GitHub repository
-RUN apt-get update && apt-get install -y git
-RUN git clone https://github.com/anggabard/QR.git
-
-# Change to the cloned repository directory
-WORKDIR /app/QR
-
-# Restore dependencies
+# Restore and publish
 RUN dotnet restore
+RUN dotnet publish -c Release -o /app/publish --no-restore
 
-# Build the function app
-RUN dotnet build -c Release --no-restore
-
-# Step 2: Publish the function
-RUN dotnet publish -c Release -o /app/publish --no-build
-
-# Step 3: Use the official Azure Functions runtime image for Windows
-FROM mcr.microsoft.com/azure-functions/dotnet:4-windows AS base
-
-# Set the working directory inside the container
+# Runtime stage: Azure Functions isolated worker (Linux)
+FROM mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0 AS base
 WORKDIR /home/site/wwwroot
 
-# Copy the published files from the build stage to the runtime stage
-COPY --from=build /app/publish /home/site/wwwroot
+# Copy published app
+COPY --from=build /app/publish .
 
-# Set the entry point to run the function app
-ENTRYPOINT ["dotnet", "QR-Generator.exe"]
+# Copy index.html so the root function can serve it
+COPY --from=build /src/index.html .
+
+ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+
+EXPOSE 80
+
+ENTRYPOINT ["func", "start", "--dotnet-isolated"]
