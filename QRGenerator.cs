@@ -59,7 +59,7 @@ namespace QR_Generator
         }
 
         [Function("Index")]
-        public IActionResult ServeIndex([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "")] HttpRequest req)
+        public IActionResult ServeIndex([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "app")] HttpRequest req)
         {
             var path = Path.Combine(AppContext.BaseDirectory, "index.html");
             if (!File.Exists(path))
