@@ -14,6 +14,13 @@ RUN dotnet publish QR-Generator.csproj -c Release -o /app/publish --no-restore -
 FROM mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0 AS base
 WORKDIR /home/site/wwwroot
 
+# Install Azure Functions Core Tools (not in PATH in this image)
+RUN apt-get update && apt-get install -y curl \
+    && curl -sL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g azure-functions-core-tools@4 --unsafe-perm \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Copy published app
 COPY --from=build /app/publish .
 
@@ -25,4 +32,4 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
 
 EXPOSE 80
 
-ENTRYPOINT ["func", "start", "--dotnet-isolated"]
+ENTRYPOINT ["func", "start", "--dotnet-isolated", "--port", "80"]
